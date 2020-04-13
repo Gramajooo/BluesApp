@@ -1,0 +1,2 @@
+rootProject.name='BluesApp'
+include ':app'
