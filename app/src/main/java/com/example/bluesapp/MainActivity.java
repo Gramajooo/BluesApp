@@ -6,16 +6,25 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.example.bluesapp.ui.main.SectionsPagerAdapter;
 
+import java.util.ArrayList;
+
+import Adaptadores.AdaptadorCardChats;
+import Modelos.UsuarioChat;
+
 public class MainActivity extends AppCompatActivity {
+
+    RecyclerView recycle;
+    ArrayList<UsuarioChat> llenarLista;
+    AdaptadorCardChats adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +36,18 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+
+        llenarLista = new ArrayList<>();
+        adaptador = new AdaptadorCardChats(llenarLista);
+        recycle = findViewById(R.id.recy_chatList);
+
+        recycle.setLayoutManager(new LinearLayoutManager(this));
+        recycle.setAdapter(adaptador);
+
+        llenarLista.add(new UsuarioChat("Jimena-chan", "supongo que se acabo..."));
+        llenarLista.add(new UsuarioChat("Pinocho", "help!"));
+        llenarLista.add(new UsuarioChat("Adriana", "\uD83D\uDE0E"));
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

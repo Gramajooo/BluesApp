@@ -3,4 +3,7 @@
     <string name="tab_text_1">Chats</string>
     <string name="tab_text_2">Estados</string>
     <string name="tab_text_3">Llamadas</string>
+    <string name="titulo">PRUEBA</string>
+    <string name="nombre">NOMBRE</string>
+    <string name="lastMessage">DESCRIPCION</string>
 </resources>
